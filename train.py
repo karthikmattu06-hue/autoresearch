@@ -271,6 +271,8 @@ def main():
     #   criterion = AsymmetricMSE(under_penalty=3.0)
     #   from losses import SmoothAsymmetricHuberLoss
     #   criterion = SmoothAsymmetricHuberLoss(delta=0.1, under_penalty=3.0)
+    import sys as _sys, os as _os
+    _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
     from losses import AsymmetricMSE
     criterion = AsymmetricMSE(under_penalty=2.0)
     # ============ AGENT-EDIT END: loss ============
