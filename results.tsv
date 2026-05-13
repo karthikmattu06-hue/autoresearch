@@ -1,0 +1,2 @@
+exp_id	commit_hash	timestamp	status	composite_score	best_test_mse	focus_fn	focus_fp	pearson	best_epoch	wall_minutes	notes
+exp_001	943f44d	2026-05-13T19:11:04	crashed	NaN	NaN	NaN	NaN	NaN	NaN	NaN	infra crash: PYTHONPATH missing losses.py when running python /content/code/train.py
