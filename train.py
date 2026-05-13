@@ -271,7 +271,8 @@ def main():
     #   criterion = AsymmetricMSE(under_penalty=3.0)
     #   from losses import SmoothAsymmetricHuberLoss
     #   criterion = SmoothAsymmetricHuberLoss(delta=0.1, under_penalty=3.0)
-    criterion = nn.MSELoss()
+    from losses import AsymmetricMSE
+    criterion = AsymmetricMSE(under_penalty=2.0)
     # ============ AGENT-EDIT END: loss ============
 
     # ── Optimizer (Adam, matching paper) ──────────────────────
