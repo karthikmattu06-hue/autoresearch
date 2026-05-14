@@ -67,9 +67,9 @@ def main():
 
     # ── Build model + load weights ─────────────────────────────
     model = TemporalFusionTransformer(
-        num_features=num_features,
+        input_size=num_features,
         hidden_size=train_args.get('hidden_size', 256),
-        num_heads=train_args.get('num_heads', 8),
+        num_attention_heads=train_args.get('num_heads', 8),
         dropout=train_args.get('dropout', 0.05),
     ).to(device)
     model.load_state_dict(ckpt['model_state_dict'])
