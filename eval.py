@@ -91,7 +91,7 @@ def main():
         for enc, dec in test_loader:
             enc = enc.to(device)
             dec = dec.to(device)
-            pred = model(enc, dec)        # already sigmoid'd in forward()
+            pred = model(enc)              # decoder_input=None → positional indices (matches training)
             all_preds.append(pred.cpu().numpy())
 
     predictions = np.concatenate(all_preds, axis=0).astype(np.float32)
