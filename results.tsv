@@ -8,3 +8,4 @@ exp_006	658f678	2026-05-14T09:30:00	constraint_fail	1000000000	0.003796	667009	1
 exp_007	351ed94	2026-05-14T12:45:00	constraint_fail	1000000000	0.003575	922523	1593912	0.9756	41	110	SmoothAsymmetricHuberLoss delta=0.05 alpha=3.0; MSE 0.003575 > cap; FP within cap; reverted
 exp_008	303e0a8	2026-05-14T15:00:00	ok	918703	0.002923	918703	1157340	0.9791	80	120	AsymMSE alpha=2.0 + Adam wd=1e-5; valid but score worse than best (879212); reverted
 exp_009	88d827e	2026-05-14T17:30:00	ok	903535	0.002823	903535	1135922	0.9798	47	120	AsymMSE alpha=2.0 + AdamW wd=1e-4; valid but score worse than best (879212); reverted
+exp_010	483492b	2026-05-14T20:00:00	ok+improved	863353	0.003080	863353	1302956	0.9781	42	120	AsymMSE alpha=2.5; NEW BEST 863353 < 879212; kept
