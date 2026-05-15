@@ -1,2 +1,10 @@
 exp_id	commit_hash	timestamp	status	composite_score	best_test_mse	focus_fn	focus_fp	pearson	best_epoch	wall_minutes	notes
 exp_001	943f44d	2026-05-13T19:11:04	crashed	NaN	NaN	NaN	NaN	NaN	NaN	NaN	infra crash: PYTHONPATH missing losses.py when running python /content/code/train.py
+exp_002	1a9e658	2026-05-13T20:52:00	ok+improved	879212	0.002694	1148919	1123434	0.9808	39	120	AsymmetricMSE under_penalty=2.0; eval run locally after fixing eval.py kwarg bugs
+exp_003	4891767	2026-05-14T01:03:00	constraint_fail	1000000000	0.003406	1178042	1311700	0.9759	55	140	AsymmetricMSE under_penalty=3.0; MSE 0.003406 > cap 0.003378; reverted
+exp_004	1f00a68	2026-05-14T03:24:00	constraint_fail	1000000000	0.003899	839437	1918367	0.9743	49	120	AsymmetricMSE under_penalty=5.0; both constraints violated; reverted
+exp_005	800947e	2026-05-14T07:08:00	constraint_fail	1000000000	0.003536	809114	1421643	0.9752	39	120	SmoothAsymmetricHuberLoss delta=0.1 alpha=3.0; MSE 0.003536 > cap; reverted
+exp_006	658f678	2026-05-14T09:30:00	constraint_fail	1000000000	0.003796	667009	1722786	0.9745	33	120	SmoothAsymmetricHuberLoss delta=0.1 alpha=5.0; both constraints violated; reverted
+exp_007	351ed94	2026-05-14T12:45:00	constraint_fail	1000000000	0.003575	922523	1593912	0.9756	41	110	SmoothAsymmetricHuberLoss delta=0.05 alpha=3.0; MSE 0.003575 > cap; FP within cap; reverted
+exp_008	303e0a8	2026-05-14T15:00:00	ok	918703	0.002923	918703	1157340	0.9791	80	120	AsymMSE alpha=2.0 + Adam wd=1e-5; valid but score worse than best (879212); reverted
+exp_009	88d827e	2026-05-14T17:30:00	ok	903535	0.002823	903535	1135922	0.9798	47	120	AsymMSE alpha=2.0 + AdamW wd=1e-4; valid but score worse than best (879212); reverted
