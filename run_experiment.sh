@@ -33,7 +33,7 @@ python -u train.py \
     --run_name    $RUN_NAME \
     --data_dir    ../data/rts96 \
     --output_base output \
-    --lr          1e-4 \
+    --lr          2e-4 \
     --batch_size  32 \
     --epochs      200 \
     --patience    40 \
