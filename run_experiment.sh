@@ -37,7 +37,7 @@ python -u train.py \
     --batch_size  32 \
     --epochs      200 \
     --patience    40 \
-    --dropout     0.05 \
+    --dropout     0.0 \
     --grad_clip   0.5
 # ============ AGENT-EDIT END: train_args ============
 echo ""
