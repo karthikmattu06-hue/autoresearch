@@ -12,7 +12,7 @@ the sum of false negatives across decision thresholds τ ∈ [0.10, 0.60].
 
 ## Hard constraints (composite_score = 1e9 if violated)
 - best_test_mse  ≤ 1.5 × 0.002252  = 0.003378
-- focus_fp       ≤ 2.0 × 806,408   = 1,612,816
+- focus_fp       ≤ 1.2 × 806,408   = 967,690   ← tightened from 2.0× per Farhan feedback
 
 ## What you can edit
 1. `train.py` — ONLY between `# AGENT-EDIT START/END` fences:
@@ -46,7 +46,7 @@ L3: Weight norm (module_norm fence)
     - Wrap pos_wise_ff Linears
     - Both
 L4: Training hyperparameters (run_experiment.sh)
-    - --lr            [1e-5, 1e-3]
+    - --lr            [1e-5, 1e-3]  (Farhan preference: stay around 1e-4 to 1e-5)
     - --batch_size    [16, 256]
     - --epochs        [50, 600]
     - --patience      any (incl. 9999 = disabled)

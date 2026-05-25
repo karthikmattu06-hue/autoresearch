@@ -14,6 +14,7 @@ class AsymmetricMSE(nn.Module):
     L = under_penalty * r²  if r > 0  (under-prediction)
     L = over_penalty  * r²  if r ≤ 0  (over-prediction)
     where r = y_true - y_pred.
+    α weights the already-squared error (α·e²), NOT the error before squaring.
     """
     def __init__(self, under_penalty: float = 3.0,
                  over_penalty:  float = 1.0,
