@@ -273,8 +273,8 @@ def main():
     #   criterion = SmoothAsymmetricHuberLoss(delta=0.1, under_penalty=3.0)
     import sys as _sys, os as _os
     _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
-    from losses import SmoothAsymmetricHuberLoss
-    criterion = SmoothAsymmetricHuberLoss(delta=0.1, under_penalty=1.5)
+    from losses import AsymmetricMSE
+    criterion = AsymmetricMSE(under_penalty=1.5)
     # ============ AGENT-EDIT END: loss ============
 
     # ── Optimizer (Adam, matching paper) ──────────────────────
@@ -284,7 +284,7 @@ def main():
     # Range: [0, 1e-3]. Examples:
     #   optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-5)
     #   optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-6)
     # ============ AGENT-EDIT END: optimizer ============
 
     # ── Scheduler ─────────────────────────────────────────────
