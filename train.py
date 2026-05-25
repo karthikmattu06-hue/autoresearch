@@ -274,7 +274,7 @@ def main():
     import sys as _sys, os as _os
     _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
     from losses import AsymmetricMSE
-    criterion = AsymmetricMSE(under_penalty=2.9375)
+    criterion = AsymmetricMSE(under_penalty=1.5)
     # ============ AGENT-EDIT END: loss ============
 
     # ── Optimizer (Adam, matching paper) ──────────────────────
