@@ -8,10 +8,12 @@
 
 ## Executive Summary
 
-Ran 7 experiments (exp_029 through exp_035) exploring the low-alpha regime under
+Ran 10 experiments (exp_029 through exp_038) exploring the low-alpha regime under
 the revised constraint caps. **SmoothAsymmetricHuberLoss with delta=0.1, alpha=1.5
 (exp_031) is the new best**, achieving composite_score = 777,320 — the first
-experiment to pass both revised constraints.
+experiment to pass both revised constraints. Follow-up fine-tuning (batch 3)
+confirmed this config sits on a narrow sweet spot — every neighboring perturbation
+fails the FP cap.
 
 ---
 
