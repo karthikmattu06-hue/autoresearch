@@ -38,7 +38,7 @@ experiments from exp_002 onward (all had focus_fp > 967,690).
 | exp_029 | AsymmetricMSE | 1.5 | — | 0 | 0.002620 | 962,397 | 901,827 | 901,827 | 0.9809 | 82 | PASS | PASS | ok |
 | exp_030 | AsymmetricMSE | 1.75 | — | 0 | 0.002682 | 1,136,198 | 832,984 | — | 0.9805 | 45 | PASS | FAIL | constraint_fail |
 | **exp_031** | **SmoothHuber** | **1.5** | **0.1** | **0** | **0.002314** | **853,856** | **777,320** | **777,320** | **0.9831** | **94** | **PASS** | **PASS** | **ok+improved** |
-| exp_032 | AsymmetricMSE | 1.5 | — | 1e-6 | 0.003171 | 1,198,014 | 986,389 | — | 0.9781 | 44 | PASS | FAIL | constraint_fail |
+| exp_032 | AsymmetricMSE | 1.5 | — | 1e-6 | 0.003171 | 1,198,014 | 986,389 | — | 0.9767 | 44 | PASS | FAIL | constraint_fail |
 
 ### Batch 2 (exp_033 to exp_035)
 
@@ -54,7 +54,7 @@ All experiments used: lr=1e-4, batch_size=32, dropout=0.0, grad_clip=0.5, warmup
 
 ## Experiments That Pass Both Constraints
 
-Only 3 of 7 experiments pass both revised constraints:
+Only 3 of 10 experiments pass both revised constraints:
 
 | Rank | ID | Loss | alpha | delta | composite | MSE | focus_fp | Pearson |
 |------|----|------|-------|-------|-----------|-----|----------|---------|
@@ -99,8 +99,9 @@ AsymmetricMSE hits the FP wall very quickly above alpha=1.5.
 | 1.25 | SmoothHuber | 923,180 | 872,477 |
 | 1.5 | SmoothHuber | 853,856 | 777,320 |
 
-alpha=1.25 has more FP headroom (923k vs 854k) but worse composite
-(872k vs 777k). The alpha=1.5 configuration is Pareto-optimal.
+alpha=1.5 dominates alpha=1.25 on both metrics: lower FP (854k vs 923k,
+more headroom under the 968k cap) and lower composite (777k vs 872k).
+Reducing alpha below 1.5 hurts both FN and FP.
 
 ### 5. Weight decay hurts at this configuration
 
@@ -193,7 +194,7 @@ Only 3 out of 10 experiments pass the revised constraints (30% pass rate).
 | Best composite_score | 777,320 (exp_031) |
 | Best MSE | 0.002314 (exp_031) |
 | Best Pearson | 0.9831 (exp_031) |
-| GPU hours consumed | ~24.5h (across all jobs + resumes) |
+| GPU hours consumed | ~23h (across all jobs + resumes) |
 
 ---
 
