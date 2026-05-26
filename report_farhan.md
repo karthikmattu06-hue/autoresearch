@@ -36,7 +36,7 @@ We ran **28 experiments total** (`exp_001`–`exp_028`, full log in `results.tsv
 
 - **L1 — loss function**: `AsymmetricMSE`, `SmoothAsymmetricHuberLoss`, plain `MSE`
 - **L2 — optimizer weight_decay**: `Adam`/`AdamW` with `wd ∈ {0, 1e-6 … 1e-3}`
-- **L3 — weight_norm**: wrap output_layer / pos_wise_ff Linears *(exp_022 specifically wrapped the `output_layer` Linears — `model.output_layer[0]`)*
+- **L3 — weight_norm**: wrap output_layer / pos_wise_ff Linears *(exp_022 wrapped `model.output_layer[0]` — the hidden→hidden Linear just before the prediction head, **not** the final `Linear(hidden, num_outputs)`. In retrospect the better target is `pos_wise_ff`, the intermediate GRN block. Either way, L3 is currently blocked: weight_norm decomposes weights into `weight_g`/`weight_v` keys that eval.py cannot load without modification — and eval.py is off-limits per program.md.)*
 - **L4 — training hyperparameters**: lr, batch_size, dropout, grad_clip, patience, warmup/cosine flags
 
 Selection rule: minimize composite score (= total FN over τ ∈ [0.10, 0.60]) subject to `best_test_mse ≤ 0.003378` and `focus_fp ≤ 1,612,816`; revert any commit whose composite did not improve on the best-so-far. exp_018 is the best surviving commit by that rule.
